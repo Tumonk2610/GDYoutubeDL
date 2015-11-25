@@ -32,11 +32,17 @@ Change the file name (excluding file type). The default is "titleofvideo"."exten
 Remove weird characters from the file name (usually used with default file name)
 
 ```objective-c
-[downloader addStrictFileName:YES];
+[downloader addStrictFileName];
 ```
 
 Get the current variables that will be used is the download process
 
 ```objective-c
 NSArray *args = [downloader arguments];
+```
+
+Start the download (WIP, no progress or complete indication)
+
+```objective-c
+[downloader beginDownload];
 ```
