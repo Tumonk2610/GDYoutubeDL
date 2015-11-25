@@ -22,3 +22,15 @@ Create a new object with the URL and file path.
 ```objective-c
 GDYoutubeDL* downloader = [[GDYoutubeDL alloc] initWithURL:[NSURL URLWithString:@""] atFilePath:[NSURL URLWithString:@""];
 ```
+
+Change the file name (excluding file type). The default is "titleofvideo"."extension"
+
+```objective-c
+[downloader addFileName:@"Rick Rolled"];
+```
+
+Remove weird characters from the file name (usually used with default file name)
+
+```objective-c
+[downloader addStrictFileName:YES];
+```
