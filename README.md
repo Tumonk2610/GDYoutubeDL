@@ -34,3 +34,9 @@ Remove weird characters from the file name (usually used with default file name)
 ```objective-c
 [downloader addStrictFileName:YES];
 ```
+
+Get the current variables that will be used is the download process
+
+```objective-c
+NSArray *args = [downloader arguments];
+```
