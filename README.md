@@ -8,5 +8,11 @@ In summary, this just uses NSTask to execute the command, and allows developers 
 Checking to see if <code>youtube-dl</code> is currently installed.
 
 ```objective-c
-[GDYoutubeDL isisYoutubeDLInstalled]; // Returns YES or NO
-````
+[GDYoutubeDL isYoutubeDLInstalled]; // Returns YES or NO
+```
+
+Create a new object with just the URL.
+
+```objective-c
+GDYoutubeDL* downloader = [[GDYoutubeDL alloc] initWithURL:[NSURL URLWithString:@"https://www.youtube.com/watch?v=dQw4w9WgXcQ"]];
+```
