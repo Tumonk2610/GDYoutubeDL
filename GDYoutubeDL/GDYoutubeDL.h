@@ -13,7 +13,7 @@
 -(GDYoutubeDL*)initWithURL:(NSURL*)url;
 -(GDYoutubeDL*)initWithURL:(NSURL*)url atFilePath:(NSURL*)filePath;
 -(void)addFileName:(NSString*)name;
--(void)addStrictFileName:(BOOL)strict;
+-(void)addStrictFileName;
 -(BOOL)beginDownload;
 @property (strong, nonatomic) NSMutableDictionary* arguments;
 -(NSMutableDictionary*)arguments;

@@ -40,15 +40,15 @@
     [self.arguments setObject:name forKey:@"filename"];
 }
 
--(void)addStrictFileName:(BOOL)strict {
-    [self.arguments setObject:[NSNumber numberWithBool:strict] forKey:@"strict"];
+-(void)addStrictFileName {
+    [self.arguments setObject:[NSNumber numberWithBool:YES] forKey:@"strict"];
 }
 
 -(BOOL)beginDownload {
     NSTask *task = [[NSTask alloc] init];
     
     task.launchPath = @"/usr/local/bin/youtube-dl";
-    task.arguments = [NSArray arrayWithObjects:@"-f", @"22", @"-o", [NSString stringWithFormat:@"%@", @"%(title)s.%(ext)s"], [self.arguments objectForKey:@"URL"], @"--restrict-filenames",nil];
+    task.arguments = [NSArray arrayWithObjects:@"-f", @"22", @"-o", [NSString stringWithFormat:@"%@%@", [self.arguments objectForKey:@"filepath"] != nil ? [self.arguments objectForKey:@"filepath"] : @"", [self.arguments objectForKey:@"filename"] != nil ? [NSString stringWithFormat:@"%@.%%(ext)s", [self.arguments objectForKey:@"filename"]] : @"%(title)s.%(ext)s"], [self.arguments objectForKey:@"URL"], [self.arguments objectForKey:@"strict"] != nil ? @"--restrict-filenames" : @"",nil];
     
     NSLog(@"youtube-dl %@", [task.arguments componentsJoinedByString:@" "]);
     
@@ -62,8 +62,8 @@
     
     NSData *outputData = [readHandle readDataToEndOfFile];
     NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
-    
-    return NO;
+    // TODO
+    return YES;
 }
 
 -(NSMutableDictionary*)arguments {
