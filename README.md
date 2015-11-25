@@ -11,8 +11,14 @@ Checking to see if <code>youtube-dl</code> is currently installed.
 [GDYoutubeDL isYoutubeDLInstalled]; // Returns YES or NO
 ```
 
-Create a new object with just the URL.
+Create a new object with just the URL. (File location default to ~/Downloads)
 
 ```objective-c
 GDYoutubeDL* downloader = [[GDYoutubeDL alloc] initWithURL:[NSURL URLWithString:@"https://www.youtube.com/watch?v=dQw4w9WgXcQ"]];
+```
+
+Create a new object with the URL and file path.
+
+```objective-c
+GDYoutubeDL* downloader = [[GDYoutubeDL alloc] initWithURL:[NSURL URLWithString:@""] atFilePath:[NSURL URLWithString:@""];
 ```
